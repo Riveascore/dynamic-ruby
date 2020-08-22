@@ -1,3 +1,6 @@
+require 'pry'
+require 'pry-remote'
+
 class StringDistanceTopDown
   attr_accessor :answer, :solutions
   
@@ -20,7 +23,14 @@ class StringDistanceTopDown
   
 
   def distance(idx_1, idx_2)
-    if idx_1 == 0
+    binding.pry_remote
+    found_solution = @solutions[idx_1][idx_2]
+    if !found_solution.nil?
+      return found_solution
+    end
+    
+    
+    min_val = if idx_1 == 0
       idx_2
     elsif idx_2 == 0
       idx_1
@@ -31,6 +41,10 @@ class StringDistanceTopDown
         replace(idx_1, idx_2)
       ].min
     end
+
+    @solutions[idx_1][idx_2] = min_val
+
+    min_val
   end
   
   
