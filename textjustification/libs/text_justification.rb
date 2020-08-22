@@ -1,14 +1,26 @@
 class TextJustification
-  def initialize(variable)
-    @variable = variable
+  def initialize(string, max_length)
+    @string = string
+    @max_length = max_length
+    self.create_map
   end
 
-  def method_1
+  def create_map
+    @map = string.split(" ")
+  end
+  
+
+  def count_char
     
   end
 
-  def method_2
+  def ugliness
     
   end
+
+  def format(i)
+    
+  end
+  
   
 end
