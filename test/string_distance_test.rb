@@ -16,10 +16,10 @@ class StringDistanceTest < Minitest::Test
     assert_equal(answer, sd.answer)
   end
   
-  def a_test_2
-    string_1 = "benyam"
-    string_2 = "ephrem"
-    answer = 5
+  def test_2
+    string_1 = "Saturday"
+    string_2 = "Sundays"
+    answer = 4
     sd = StringDistance.new(string_1, string_2)
 
     assert_equal(answer, sd.answer)

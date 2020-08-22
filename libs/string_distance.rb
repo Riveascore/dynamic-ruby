@@ -17,8 +17,8 @@ class StringDistance
     @string_1 = string_1
     @string_2 = string_2
 
-    idx_1 = @string_1.size - 1
-    idx_2 = @string_2.size - 1
+    idx_1 = @string_1.size
+    idx_2 = @string_2.size
     @answer = distance(idx_1, idx_2)
   end
 
@@ -49,11 +49,12 @@ class StringDistance
   end
 
   def replace(idx_1, idx_2)
-    operation_count = if @string_1[idx_1] == @string_2[idx_2]
+    operation_count = if @string_1[idx_1 - 1] == @string_2[idx_2 - 1]
       0
     else
       1
     end
+
     operation_count + distance(idx_1 - 1, idx_2 - 1)
   end
   
