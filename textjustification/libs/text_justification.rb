@@ -10,8 +10,13 @@ class TextJustification
   end
   
 
-  def count_char
-    
+  def count_char(from, to)
+    char_count = 0
+
+    for i in from..to
+      count += @map[i].size
+      count += 1 if i < to
+    end
   end
 
   def ugliness
