@@ -8,7 +8,7 @@ class StringDistanceTopDown
     idx_1 = @string_1.size
     idx_2 = @string_2.size
 
-    @solutions = (0..idx_1 - 1).map |idx_1_val|
+    @solutions = (0..(idx_1 - 1)).map do |idx_1_val|
       Array.new(idx_2, nil)
     end
     
