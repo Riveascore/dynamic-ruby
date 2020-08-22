@@ -1,10 +1,12 @@
 require_relative "../libs/string_distance.rb"
+require_relative "../libs/string_distance_top_down.rb"
 require "test/unit"
 require "minitest/autorun"
 
 class StringDistanceTest < Minitest::Test
   def setup
-    @class_to_use = StringDistance
+    # @class_to_use = StringDistance
+    @class_to_use = StringDistanceTopDown
   end
   
   def test_1
