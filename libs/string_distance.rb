@@ -27,9 +27,9 @@ class StringDistance
     # puts "idx_2: #{idx_2}"
     
     if idx_1 == 0
-      idx_1
-    elsif idx_2 == 0
       idx_2
+    elsif idx_2 == 0
+      idx_1
     else
       [
         delete(idx_1, idx_2),
