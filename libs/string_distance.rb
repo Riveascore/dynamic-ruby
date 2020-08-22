@@ -11,9 +11,15 @@
 # replace letter
 
 class StringDistance
+  attr_accessor :answer
+  
   def initialize(string_1, string_2)
     @string_1 = string_1
     @string_2 = string_2
+
+    idx_1 = @string_1.size - 1
+    idx_2 = @string_2.size - 1
+    @answer = distance(idx_1, idx_2)
   end
 
   def distance(idx_1, idx_2)
