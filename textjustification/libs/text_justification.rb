@@ -21,8 +21,12 @@ class TextJustification
     char_count
   end
 
-  def ugliness
-    
+  def ugliness(input_length)
+    if input_length > @max_length
+      Float::INFINITY
+    else
+      (@max_length - input_length) ** 2
+    end
   end
 
   def format(n)
@@ -34,7 +38,8 @@ class TextJustification
 
     min_score = Float::INFINITY
     for i in n..end_val
-      ug = ugliness(n, i)
+      count_val = char_count(n, i)
+      ug = ugliness(count_val)
       formatted = format(n + 1)
       score = ug + formatted
 
