@@ -17,7 +17,17 @@ class StringDistance
   end
 
   def distance(idx_1, idx_2)
-    
+    if a == 0
+      @string_2.size
+    elsif b == 0
+      @string_1.size
+    else
+      [
+        delete(idx_1, idx_2),
+        insert(idx_1, idx_2),
+        replace(idx_1, idx_2)
+      ].min
+    end
   end
   
   
