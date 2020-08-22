@@ -11,8 +11,8 @@ class StringDistanceTopDown
     idx_1 = @string_1.size
     idx_2 = @string_2.size
 
-    @solutions = (0..(idx_1 - 1)).map do |idx_1_val|
-      Array.new(idx_2, nil)
+    @solutions = (0..(idx_2)).map do |idx_1_val|
+      Array.new(idx_1 + 1, nil)
     end
     
   end
@@ -23,18 +23,16 @@ class StringDistanceTopDown
   
 
   def distance(idx_1, idx_2)
-    binding.pry_remote
-    found_solution = @solutions[idx_1][idx_2]
-    if !found_solution.nil?
-      return found_solution
-    end
-    
-    
     min_val = if idx_1 == 0
       idx_2
     elsif idx_2 == 0
       idx_1
     else
+      found_solution = @solutions[idx_2][idx_1]
+      if !found_solution.nil?
+        return found_solution
+      end
+
       [
         delete(idx_1, idx_2),
         insert(idx_1, idx_2),
@@ -42,7 +40,7 @@ class StringDistanceTopDown
       ].min
     end
 
-    @solutions[idx_1][idx_2] = min_val
+    @solutions[idx_2][idx_1] = min_val
 
     min_val
   end
