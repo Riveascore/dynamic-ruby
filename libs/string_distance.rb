@@ -23,6 +23,9 @@ class StringDistance
   end
 
   def distance(idx_1, idx_2)
+    # puts "idx_1: #{idx_1}"
+    # puts "idx_2: #{idx_2}"
+    
     if idx_1 == 0
       @string_2.size
     elsif idx_2 == 0
@@ -38,7 +41,7 @@ class StringDistance
   
   
   def delete(idx_1, idx_2)
-    1 + distance(idx_1, idx_2)
+    1 + distance(idx_1 - 1, idx_2)
   end
 
   def insert(idx_1, idx_2)
