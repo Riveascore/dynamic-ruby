@@ -11,15 +11,25 @@
 # replace letter
 
 class StringDistance
-  def initialize(variable)
-    @variable = variable
+  def initialize(string_1, string_2)
+    @string_1 = string_1
+    @string_2 = string_2
   end
 
-  def method_1
+  def distance(idx_1, idx_2)
+    
+  end
+  
+  
+  def delete(idx_1, idx_2)
     
   end
 
-  def method_2
+  def insert(idx_1, idx_2)
+    
+  end
+
+  def replace(idx_1, idx_2)
     
   end
   
