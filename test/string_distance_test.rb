@@ -4,14 +4,14 @@ require "minitest/autorun"
 
 class StringDistanceTest < Minitest::Test
   def setup
-    
+    @class_to_use = StringDistance
   end
   
   def test_1
     string_1 = "benyam"
     string_2 = "ephrem"
     answer = 5
-    sd = StringDistance.new(string_1, string_2)
+    sd = @class_to_use.new(string_1, string_2)
 
     assert_equal(answer, sd.answer)
   end
@@ -20,7 +20,7 @@ class StringDistanceTest < Minitest::Test
     string_1 = "Saturday"
     string_2 = "Sundays"
     answer = 4
-    sd = StringDistance.new(string_1, string_2)
+    sd = @class_to_use.new(string_1, string_2)
 
     assert_equal(answer, sd.answer)
   end
@@ -29,7 +29,7 @@ class StringDistanceTest < Minitest::Test
     string_1 = "brabble"
     string_2 = "rickandmortyissickkkkk"
     answer = 21
-    sd = StringDistance.new(string_1, string_2)
+    sd = @class_to_use.new(string_1, string_2)
 
     assert_equal(answer, sd.answer)
   end
