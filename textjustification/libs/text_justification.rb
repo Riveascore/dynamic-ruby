@@ -6,7 +6,7 @@ class TextJustification
   end
 
   def create_map
-    @map = string.split(" ")
+    @map = @string.split(" ")
   end
   
 
@@ -38,7 +38,7 @@ class TextJustification
 
     min_score = Float::INFINITY
     for i in n..end_val
-      count_val = char_count(n, i)
+      count_val = count_char(n, i)
       ug = ugliness(count_val)
       formatted = format(n + 1)
       score = ug + formatted
