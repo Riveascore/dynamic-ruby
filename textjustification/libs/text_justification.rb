@@ -14,9 +14,11 @@ class TextJustification
     char_count = 0
 
     for i in from..to
-      count += @map[i].size
-      count += 1 if i < to
+      char_count += @map[i].size
+      char_count += 1 if i < to
     end
+
+    char_count
   end
 
   def ugliness
