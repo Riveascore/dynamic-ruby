@@ -25,8 +25,26 @@ class TextJustification
     
   end
 
-  def format(i)
-    
+  def format(n)
+    end_val = @map.size - 1
+
+    if n > end_val
+      return 0
+    end
+
+    min_score = Float::INFINITY
+    for i in n..end_val
+      ug = ugliness(n, i)
+      formatted = format(n + 1)
+      score = ug + formatted
+
+      min_score = [
+        min_score,
+        score
+      ].min
+    end
+
+    min_score
   end
   
   

@@ -8,14 +8,21 @@ class TextJustificationTest < Minitest::Test
   end
   
   def test_1
+    string = "Isabel sat on the step"
+    max_length = 10
+    answer = 36
 
+    just = TextJustification.new(string, max_length)
+    found_solution = just.format(0)
+
+    assert_equal(answer, found_solution)
   end
   
-  def test_2
+  # def test_2
     
-  end
+  # end
 
-  def test_3
+  # def test_3
     
-  end
+  # end
 end
