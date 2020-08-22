@@ -3,6 +3,7 @@ class TextJustificationBottomUp
     @string = string
     @max_length = max_length
     self.create_map
+    @formatted = Array.new(@map.size, nil)
   end
 
   def create_map
@@ -36,11 +37,18 @@ class TextJustificationBottomUp
       return 0
     end
 
+    found_value = @formatted[n]
+    if !found_value.nil?
+      return found_value
+    end
+
     min_score = Float::INFINITY
     for i in (n + 1)..end_val
       count_val = count_char(n, i)
       ug = ugliness(count_val)
       formatted = format(i)
+      @formatted[i] = formatted
+
       score = ug + formatted
 
       min_score = [
@@ -48,6 +56,9 @@ class TextJustificationBottomUp
         score
       ].min
     end
+
+    min_score
+    @formatted[n] = min_score
 
     min_score
   end
