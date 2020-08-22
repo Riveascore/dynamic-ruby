@@ -22,15 +22,20 @@ class StringDistance
   
   
   def delete(idx_1, idx_2)
-    
+    1 + distance(idx_1, idx_2)
   end
 
   def insert(idx_1, idx_2)
-    
+    1 + distance(idx_1, idx_2 - 1)
   end
 
   def replace(idx_1, idx_2)
-    
+    operation_count = if @string_1[idx_1] == @string_2[idx_2]
+      0
+    else
+      1
+    end
+    operation_count + distance(idx_1 - 1, idx_2 - 1)
   end
   
 end
