@@ -1,5 +1,5 @@
 class StringDistanceTopDown
-  attr_accessor :answer
+  attr_accessor :answer, :solutions
   
   def initialize(string_1, string_2)
     @string_1 = string_1
@@ -7,9 +7,17 @@ class StringDistanceTopDown
 
     idx_1 = @string_1.size
     idx_2 = @string_2.size
+
+    @solutions = (0..idx_1 - 1).map |idx_1_val|
+      Array.new(idx_2, nil)
+    end
     
-    @answer = distance(idx_1, idx_2)
   end
+  
+  def get_answer
+    @answer = distance(@string_1.size, @string_2.size)
+  end
+  
 
   def distance(idx_1, idx_2)
     if idx_1 == 0

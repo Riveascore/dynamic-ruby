@@ -14,6 +14,8 @@ class StringDistanceTest < Minitest::Test
     string_2 = "ephrem"
     answer = 5
     sd = @class_to_use.new(string_1, string_2)
+    sd.get_answer
+    puts "solutions: #{sd.solutions}"
 
     assert_equal(answer, sd.answer)
   end
@@ -23,6 +25,7 @@ class StringDistanceTest < Minitest::Test
     string_2 = "Sundays"
     answer = 4
     sd = @class_to_use.new(string_1, string_2)
+    sd.get_answer
 
     assert_equal(answer, sd.answer)
   end
@@ -32,6 +35,7 @@ class StringDistanceTest < Minitest::Test
     string_2 = "rickandmortyissickkkkk"
     answer = 21
     sd = @class_to_use.new(string_1, string_2)
+    # sd.get_answer
 
     assert_equal(answer, sd.answer)
   end
