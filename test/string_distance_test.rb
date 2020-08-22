@@ -8,14 +8,29 @@ class StringDistanceTest < Minitest::Test
   end
   
   def test_1
+    string_1 = "benyam"
+    string_2 = "ephrem"
+    answer = 5
+    sd = StringDistance.new(string_1, string_2)
 
+    assert_equal(answer, sd.answer)
   end
   
-  def test_2
-    
+  def a_test_2
+    string_1 = "benyam"
+    string_2 = "ephrem"
+    answer = 5
+    sd = StringDistance.new(string_1, string_2)
+
+    assert_equal(answer, sd.answer)
   end
 
-  def test_3
-    
+  def a_test_3
+    string_1 = "benyam"
+    string_2 = "ephrem"
+    answer = 5
+    sd = StringDistance.new(string_1, string_2)
+
+    assert_equal(answer, sd.answer)
   end
 end

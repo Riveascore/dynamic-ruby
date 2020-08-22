@@ -23,9 +23,9 @@ class StringDistance
   end
 
   def distance(idx_1, idx_2)
-    if a == 0
+    if idx_1 == 0
       @string_2.size
-    elsif b == 0
+    elsif idx_2 == 0
       @string_1.size
     else
       [
