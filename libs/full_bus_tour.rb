@@ -24,6 +24,7 @@ class FullBusTour
       end
       val = return_array.sum
       is_correct(val)
+      return
     end
 
     i = start
