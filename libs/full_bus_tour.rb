@@ -74,7 +74,6 @@ class FullBusTour
       i += 1
     end
   end
-} 
 
   def printCombination(arr, n, r) 
     data = Array.new(r)
