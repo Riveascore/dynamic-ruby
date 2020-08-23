@@ -81,9 +81,13 @@ class FullBusTour
   end
 
   def main
-    r = 3
+    # r = 3
     n = @group_sizes.size
-    printCombination(@group_sizes, n, r)
+
+    for r in 0..n
+      printCombination(@group_sizes, n, r)
+    end
+
   end
 
 
