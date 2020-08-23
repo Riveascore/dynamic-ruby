@@ -38,7 +38,7 @@ class FullBusTourTest < Minitest::Test
     assert(full_bus_tour.fits_exactly, "[1, 3, 5, 4, 7, 11, 9, 9, 21, 7, 4, 21, 13, 8, 2, 5, 1, 18] with a bus capacity of 107 should fit")
   end
 
-  def b_test_z_perf_test
+  def test_z_perf_test
     full_bus_tour = FullBusTour.new([1] * 500, 500)
     assert(full_bus_tour.fits_exactly, "Performance test is failing. Improve your algorithm!")
   end

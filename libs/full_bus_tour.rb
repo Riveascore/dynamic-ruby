@@ -7,10 +7,15 @@ class FullBusTour
   end
 
   def sum_array(start, ending)
+    value_at_start = @group_sizes[start]
+    if value_at_start == @full_cap
+      @answer = value_at_start
+    end
+    
     solution = if start == ending
-      @group_sizes[start]
+      value_at_start
     else
-      @group_sizes[start] + sum_array(start, ending - 1)
+      value_at_start + sum_array(start, ending - 1)
     end
 
     if solution == @full_cap
