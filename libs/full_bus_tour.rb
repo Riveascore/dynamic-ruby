@@ -57,18 +57,18 @@ class FullBusTour
 
   def combinationUtil(arr, data, start, end_val, index, r) 
     if (index == r) 
-      val = data.sum
+      j = 0
+      return_array = []
+      while j < r do
+        return_array.push(data[j])
+        j += 1
+      end
+      val = return_array.sum
       is_correct(val)
-      # for (j = 0; j < r; j++) 
-      #   cout << data[j] << " " 
-      #   cout << endl 
-      #   return 
-      # end
     end
 
     i = start
     while i <= end_val && end_val - i + 1 >= r - index do
-    # for (i = start; i <= end_val && end_val - i + 1 >= r - index; i++) 
       data[index] = arr[i]
       combinationUtil(arr, data, i + 1, end_val, index + 1, r)
       i += 1
@@ -81,10 +81,9 @@ class FullBusTour
   end
 
   def main
-    # r = 3
     n = @group_sizes.size
 
-    for r in 0..n
+    for r in 1..n
       printCombination(@group_sizes, n, r)
     end
 
