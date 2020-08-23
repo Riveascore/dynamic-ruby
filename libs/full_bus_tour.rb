@@ -1,3 +1,10 @@
+# sum_is_correct
+# check_full_array
+# keep_going
+# combination_helper
+# find_all_combinations
+# combinations_of_all_sizes
+
 class FullBusTour
   attr_accessor :answer
   
@@ -7,7 +14,7 @@ class FullBusTour
     @full_cap = full_cap
   end
 
-  def is_correct(val)
+  def sum_is_correct(val)
     if val == @full_cap
       @answer = val
     end
@@ -21,7 +28,7 @@ class FullBusTour
       j += 1
     end
     val = return_array.sum
-    is_correct(val)
+    sum_is_correct(val)
   end
 
   def keep_going(i, end_val, r, index)
