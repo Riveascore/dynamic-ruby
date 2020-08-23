@@ -24,7 +24,7 @@ class FullBusTour
     is_correct(val)
   end
 
-  def stopping_condition(i, end_val, r, index)
+  def keep_going(i, end_val, r, index)
     i <= end_val && end_val - i + 1 >= r - index
   end
   
@@ -37,7 +37,7 @@ class FullBusTour
     end
 
     i = start
-    while stopping_condition(i, end_val, r, index) do
+    while keep_going(i, end_val, r, index) do
       data[index] = arr[i]
       combination_helper(arr, data, i + 1, end_val, index + 1, r)
       i += 1
