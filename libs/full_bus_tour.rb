@@ -53,6 +53,41 @@ class FullBusTour
       @answer = val
     end
   end
+
+
+  def combinationUtil(arr, data, start, end_val, index, r) 
+    if (index == r) 
+      val = data.sum
+      is_correct(val)
+      # for (j = 0; j < r; j++) 
+      #   cout << data[j] << " " 
+      #   cout << endl 
+      #   return 
+      # end
+    end
+
+    i = start
+    while i <= end_val && end_val - i + 1 >= r - index do
+    # for (i = start; i <= end_val && end_val - i + 1 >= r - index; i++) 
+      data[index] = arr[i]
+      combinationUtil(arr, data, i + 1, end_val, index + 1, r)
+      i += 1
+    end
+  end
+} 
+
+  def printCombination(arr, n, r) 
+    data = Array.new(r)
+    combinationUtil(arr, data, 0, n-1, 0, r)
+  end
+
+  def main
+    r = 3
+    n = @group_sizes.size
+    printCombination(@group_sizes, n, r)
+  end
+
+
   
   
   
@@ -66,7 +101,8 @@ class FullBusTour
 
     # puts "@group_sizes: #{@group_sizes}"
     # puts "@answer: #{@answer}"
-    check_all_nodes
+    # check_all_nodes
+    main
     !@answer.nil?
   end
 end
