@@ -3,6 +3,7 @@ class FullBusTour
   
   def initialize(group_sizes, full_cap)
     @group_sizes = group_sizes
+    @last_index = @group_sizes.size - 1
     @full_cap = full_cap
   end
 
@@ -26,15 +27,31 @@ class FullBusTour
   # end
 
   def check_all_nodes
-    
+    for i in 0..(@last_index)
+      tree_sum(i)
+    end
   end
 
   def tree_sum(n)
-    
+    solo = @group_sizes[n]
+    is_correct(solo)
+    total = solo
+
+    for i in (n + 1)..(@last_index)
+      t_sum = tree_sum(i)
+      answer = solo + t_sum
+      is_correct(t_sum)
+      # is_correct(t_sum + solo)
+      total += t_sum
+    end
+
+    total
   end
 
   def is_correct(val)
-    
+    if val == @full_cap
+      @answer = val
+    end
   end
   
   
