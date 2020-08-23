@@ -35,6 +35,77 @@ class FullBusTour
     i <= end_val && end_val - i + 1 >= r - index
   end
   
+  def check_combo(used, array)
+    final_array = []
+    
+    used.each.with_index do |is_used, index|
+      if is_used
+        final_array.push(array[index])
+      end
+    end
+
+    sum_is_correct(final_array.sum)
+  end
+  
+=begin
+  4 cases
+
+    current_length == combo_size
+      found a match
+
+    start > array size
+    out of bounds, return
+
+    use current element
+      combos (start + 1, length + 1)
+
+    don't use current element
+      combos(start + 1, length)
+=end
+  def combinations(array, combo_size, start, current_length, used)
+    if current_length == combo_size
+      check_combo(used, array)
+      return
+    end
+
+    if start == array.size
+      return
+    end
+
+    # 2 cases, 
+
+    # use current element, 
+      # used[start] = true
+      # current length increases
+      # get combinations starting at next index
+    used[start] = true
+    combinations(array, combo_size, start + 1, current_length + 1, used)
+
+    # don't use current element
+      # used[start] = false
+      # using same length
+      # get combinations starting at next
+    used[start] = false
+    combinations(array, combo_size, start + 1, current_length, used)
+  end
+
+  def combinations_of_size(array, combo_size)
+    used = Array.new(array.size)
+    start = 0
+    current_length = 0
+    combinations(array, combo_size, start, current_length, used)
+  end
+  
+
+  def combinations_of_every_size(array)
+    for combo_size in 0..(array.size - 1)
+      combinations_of_size(array, combo_size)
+    end
+  end
+  
+  
+  
+  
   
 
   def combination_helper(arr, data, start, end_val, index, r) 
@@ -66,7 +137,8 @@ class FullBusTour
   end
 
   def fits_exactly(length = @group_sizes.length, c = @full_cap)
-    combinations_of_all_sizes
+    # combinations_of_all_sizes
+    combinations_of_every_size(@group_sizes)
     !@answer.nil?
   end
 end
