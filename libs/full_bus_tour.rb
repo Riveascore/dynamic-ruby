@@ -14,7 +14,7 @@ class FullBusTour
   end
 
 
-  def combinationUtil(arr, data, start, end_val, index, r) 
+  def combination_helper(arr, data, start, end_val, index, r) 
     if (index == r) 
       j = 0
       return_array = []
@@ -29,27 +29,27 @@ class FullBusTour
     i = start
     while i <= end_val && end_val - i + 1 >= r - index do
       data[index] = arr[i]
-      combinationUtil(arr, data, i + 1, end_val, index + 1, r)
+      combination_helper(arr, data, i + 1, end_val, index + 1, r)
       i += 1
     end
   end
 
-  def printCombination(arr, n, r) 
+  def find_all_combinations(arr, n, r) 
     data = Array.new(r)
-    combinationUtil(arr, data, 0, n-1, 0, r)
+    combination_helper(arr, data, 0, n-1, 0, r)
   end
 
-  def main
+  def combinations_of_all_sizes
     n = @group_sizes.size
 
     for r in 1..n
-      printCombination(@group_sizes, n, r)
+      find_all_combinations(@group_sizes, n, r)
     end
 
   end
 
   def fits_exactly(length = @group_sizes.length, c = @full_cap)
-    main
+    combinations_of_all_sizes
     !@answer.nil?
   end
 end
