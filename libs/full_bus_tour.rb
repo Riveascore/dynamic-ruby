@@ -13,17 +13,21 @@ class FullBusTour
     end
   end
 
+  def check_full_array(data, r)
+    j = 0
+    return_array = []
+    while j < r do
+      return_array.push(data[j])
+      j += 1
+    end
+    val = return_array.sum
+    is_correct(val)
+  end
+  
 
   def combination_helper(arr, data, start, end_val, index, r) 
     if (index == r) 
-      j = 0
-      return_array = []
-      while j < r do
-        return_array.push(data[j])
-        j += 1
-      end
-      val = return_array.sum
-      is_correct(val)
+      check_full_array(data, r)
       return
     end
 
