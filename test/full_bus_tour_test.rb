@@ -4,8 +4,11 @@ require "minitest/autorun"
 
 class FullBusTourTest < Minitest::Test
   def test_simple_bus_full
-    full_bus_tour = FullBusTour.new([3, 34, 4, 12, 5, 2], 9)
-    assert(full_bus_tour.fits_exactly, "[3, 34, 4, 12, 5, 2] with a bus capacity of 9 should fit with [4, 5]")
+    group_sizes = [3, 34, 4, 12, 5, 2]
+    full_cap = 9
+    full_bus_tour = FullBusTour.new(group_sizes, full_cap)
+    answer = full_bus_tour.fits_exactly
+    assert(answer, "[3, 34, 4, 12, 5, 2] with a bus capacity of 9 should fit with [4, 5]")
   end
 
   def test_simple_bus_full_again
