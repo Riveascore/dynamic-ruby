@@ -23,6 +23,11 @@ class FullBusTour
     val = return_array.sum
     is_correct(val)
   end
+
+  def stopping_condition(i, end_val, r, index)
+    i <= end_val && end_val - i + 1 >= r - index
+  end
+  
   
 
   def combination_helper(arr, data, start, end_val, index, r) 
@@ -32,7 +37,7 @@ class FullBusTour
     end
 
     i = start
-    while i <= end_val && end_val - i + 1 >= r - index do
+    while stopping_condition(i, end_val, r, index) do
       data[index] = arr[i]
       combination_helper(arr, data, i + 1, end_val, index + 1, r)
       i += 1
